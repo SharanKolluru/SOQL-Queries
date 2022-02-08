@@ -1,1 +1,0 @@
-FIND {@isTest} IN ALL FIELDS RETURNING ApexClass
