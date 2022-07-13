@@ -4,12 +4,11 @@
 - SELECT Id, Name FROM RecordType WHERE sObjectType = 'lead'
 - SELECT Id, Name FROM RecordType WHERE sObjectType = 'lead' AND DeveloperName = 'McM_Lead' LIMIT 1
 
-Both SOQL queries are same and retrieves same results. This is not a best approach, as it counts 1 SOQL Query.
-
 ![image](https://user-images.githubusercontent.com/88401843/128869488-70532290-cd39-40b3-9563-b734ab57b866.png)
 
 **Method #2:** Instead of SOQL query, Its preferable to use Dynamic APEX to get RecordTypeId.
-- ID accRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+- ID RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
 - ID RecordTypeId = ObjectUtility.getObjectRecordTypeId('Account' , 'PersonAccount');
+- ID RecordTypeId = Schema.getGlobalDescribe().get('Account').getDescribe().getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
 
 
