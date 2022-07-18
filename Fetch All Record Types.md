@@ -8,7 +8,6 @@
 
 **Method #2:** Instead of SOQL query, Its preferable to use Dynamic APEX to get RecordTypeId.
 - ID RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
-- ID RecordTypeId = ObjectUtility.getObjectRecordTypeId('Account' , 'PersonAccount');
 - ID RecordTypeId = Schema.getGlobalDescribe().get('Account').getDescribe().getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
 
 
