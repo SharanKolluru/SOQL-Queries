@@ -1,0 +1,8 @@
+/* SOQL Query to fetch Object Level Permissions on Profile Level */
+SELECT sObjectType, PermissionsCreate, PermissionsRead, PermissionsEdit, PermissionsDelete, PermissionsModifyAllRecords, PermissionsViewAllRecords 
+FROM ObjectPermissions 
+WHERE ParentId IN ( 
+SELECT Id 
+FROM PermissionSet 
+WHERE PermissionSet.Profile.Name = 'System Administrator' 
+)
